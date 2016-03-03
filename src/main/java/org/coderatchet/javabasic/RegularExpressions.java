@@ -1,4 +1,4 @@
-package org.coderatchet;
+package org.coderatchet.javabasic;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;

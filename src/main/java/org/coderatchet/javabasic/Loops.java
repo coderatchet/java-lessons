@@ -1,4 +1,4 @@
-package org.coderatchet;
+package org.coderatchet.javabasic;
 
 public class Loops {
 	public static void main(String[] args) {
