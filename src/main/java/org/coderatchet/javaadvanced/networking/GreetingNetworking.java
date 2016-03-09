@@ -19,7 +19,7 @@ public class GreetingNetworking {
 		threadPool.submit(new ClientTask());
 		try {
 			threadPool.shutdown();
-			boolean finishedOnTime = threadPool.awaitTermination(100, TimeUnit.MILLISECONDS);
+			boolean finishedOnTime = threadPool.awaitTermination(6, TimeUnit.MILLISECONDS);
 			if (finishedOnTime) System.out.println("finished on time!");
 			else System.out.println("didn't finish in time!");
 			
@@ -82,13 +82,13 @@ public class GreetingNetworking {
 
 				DataInputStream in = new DataInputStream(
 						server.getInputStream());
-				System.out.println("Server: Received - " + in.readUTF());
+				String message = in.readUTF();
+				System.out.println("Server: Received - " + message);
 
 				DataOutputStream out = new DataOutputStream(
 						server.getOutputStream());
-				System.out.println("Server: Writing response 'Thanks!' to client");
-				out.writeUTF("Thanks!");
-
+				System.out.println("Server: Writing response echo: " + message + " to client");
+				out.writeUTF("echo: " + message);
 			} catch (IOException e) {
 				e.printStackTrace();
 			} finally {
