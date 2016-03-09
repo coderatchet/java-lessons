@@ -18,4 +18,9 @@ public class Car extends Vehicle {
 	public Manufacturer manufacturer() {
 		return manufacturer;
 	}
+	
+	@Override
+	public String toString() {
+		return model().getName() + " made by " + manufacturer().getName();  
+	}
 }

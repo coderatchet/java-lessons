@@ -1,17 +1,30 @@
 package org.coderatchet.javaadvanced.datastructures;
 
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Arrays;
 import java.util.BitSet;
+import java.util.Dictionary;
 import java.util.Enumeration;
+import java.util.Hashtable;
+import java.util.Properties;
 import java.util.Stack;
 import java.util.Vector;
 
+import org.coderatchet.oo.Car;
+import org.coderatchet.oo.HoldenCommodore;
+import org.coderatchet.oo.Manufacturer;
+import org.coderatchet.oo.Model;
+
 public class DataStructuresMain {
 	public static void main(String[] args) {
-		enumExample();
-		bitSetExample();
-		vectorExample();
-		stackExample();
+//		enumExample();
+//		bitSetExample();
+//		vectorExample();
+//		stackExample();
+//		hashTableExample();
+		propertiesExample();
 	}
 	
 	public static void enumExample() {
@@ -53,5 +66,47 @@ public class DataStructuresMain {
 		while(!stack.empty()) {
 			System.out.print(stack.pop());
 		}
+	}
+	
+	public static void hashTableExample() {
+		Dictionary<String, Car> cars = new Hashtable<String, Car>();
+		Car holden = new HoldenCommodore("woosh");
+		Car truck = new Car(new Model("MEGAMONSTER"), new Manufacturer("IZUZU"));
+		cars.put(holden.model().getName(), holden);
+		cars.put(truck.model().getName(), truck);
+		
+		Car search = cars.get("MEGAMONSTER");
+		System.out.println("got the car: " + search);
+	}
+	
+	public static void propertiesExample() {
+		Properties props = new Properties();
+		FileWriter writer = null;
+		FileReader reader = null;
+		try {
+			reader = new FileReader("data/props.properties");
+			writer = new FileWriter("data/moreProps.properties");
+			props.load(reader);
+			System.out.println("foo=" + props.get("foo"));
+			
+			props.setProperty("baz", "foo");
+			props.store(writer, "just testing things out");
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			if (null != reader) {
+				try {
+					reader.close();
+				} catch (IOException ignore) {
+				}
+			}
+			if (null != writer) {
+				try {
+					writer.close();
+				} catch (IOException ignore) {
+				}
+			}
+		}
+		
 	}
 }
