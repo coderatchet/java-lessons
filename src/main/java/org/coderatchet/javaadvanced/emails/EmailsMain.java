@@ -22,7 +22,6 @@ public class EmailsMain {
 		// Sender's email ID needs to be mentioned
 		String from = "jarednagle@gmail.com";
 
-		
 		JPanel panel = new JPanel();
 		JLabel label = new JLabel("Enter a password:");
 		JPasswordField pass = new JPasswordField(10);
@@ -39,7 +38,7 @@ public class EmailsMain {
 		} else password = new char[] {};
 		
 		// Assuming you are sending email from localhost
-		String host = "localhost";
+		String host = "smtp.gmail.com";
 
 		// Get system properties
 		Properties props = new Properties();
@@ -47,7 +46,7 @@ public class EmailsMain {
 		props.put("mail.smtp.starttls.enable", "true");
 		
 		// Setup mail server
-		props.put("mail.smtp.host", "smtp.gmail.com");
+		props.put("mail.smtp.host", host);
 		props.put("mail.smtp.port", "587");
 
 		// Get the default Session object.
@@ -70,10 +69,10 @@ public class EmailsMain {
 					to));
 
 			// Set Subject: header field
-			message.setSubject("This is the Subject Line!");
+			message.setSubject("Get an Enlarged Apple");
 
 			// Now set the actual message
-			message.setText("This is actual message");
+			message.setText("APPPPLE");
 
 			// Send message
 			Transport.send(message);
