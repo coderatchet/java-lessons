@@ -10,8 +10,8 @@ import java.util.Set;
 
 public class CollectionsMain {
 	public static void main(String[] args) {
-		collectionExample();
-		listExample();
+//		collectionExample();
+//		listExample();
 		setAndInevitablySortedSetExample();
 		mapExample();
 	}
@@ -24,7 +24,7 @@ public class CollectionsMain {
 		collection.add("something4");
 		collection.add("something5");
 		collection.add("something6");
-		// collection.get(index) not avaiable
+		// collection.get(index) not available
 		collection.forEach(str -> System.out.println(str));
 	}
 
@@ -49,7 +49,7 @@ public class CollectionsMain {
 	}
 
 	public static void setAndInevitablySortedSetExample() {
-		Set<String> set = new HashSet<>();
+		Set<String> set = new HashSet<>(); // TreeSet
 
 		set.add("c");
 		set.add("b");
