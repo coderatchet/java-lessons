@@ -24,5 +24,4 @@ public class PersonReader implements PeopleSource, JSONToPersonTranslator {
 	public static void main(String[] args) {
 		// call your code from here
 	}
-	
 }
