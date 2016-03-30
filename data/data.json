@@ -1,6 +1,6 @@
 [
   {
-    "index": 0, // strs[0].trim().substring(1, strs[0].length - 2) // Integer.valueOf(strs[1]) // case "index": person.setIndex(indexNumber); break;
+    "index": 0,
     "isActive": true,
     "balance": "$2,090.54",
     "age": 38,
